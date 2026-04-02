@@ -104,7 +104,7 @@ namespace Minesweeper
 
         private void Form_Resize(object sender, EventArgs e)
         {
-            if (Size.Width >= MinimumSize.Width)
+            if (mf!=null && Size.Width >= MinimumSize.Width)
                 mf.Size = new Size(Width - 200, Height - 200);
         }
 
