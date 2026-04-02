@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -47,7 +47,7 @@ namespace Minesweeper
             mf.ShowProbability = mShowProbability.Checked;
             mf.ShowPercentage = mShowPercentage.Checked;
             lbGameRes.Text = null;
-            lbTime.Text = "0000,00";
+            lbTime.Text = "00:00:00";
             fieldChanged(mf.getInfo());
             Form_Resize(null, null);
             mf.Parent = this;
@@ -82,7 +82,10 @@ namespace Minesweeper
             if (mf.gameStarted)
             {
                 if (!mf.gameOver)
-                    lbTime.Text = $"{mf.getTimeFromStart():0000.00}";
+                {
+                    var t = mf.getTimeFromStart();
+                    lbTime.Text = $"{Math.Floor(t/60.0/60):00}:{Math.Floor(t/60.0)%60:00}:{(int)(t)%60:00}";
+                }
             }
 
         }
@@ -114,7 +117,7 @@ namespace Minesweeper
         }
 
 
-        private void mShowProbablity_Click(object sender, EventArgs e)
+        private void mShowProbability_Click(object sender, EventArgs e)
         {
             mShowPercentage.Enabled = mShowProbability.Checked = !mShowProbability.Checked;
             if (mShowProbability.Checked)
@@ -177,7 +180,7 @@ namespace Minesweeper
                 mf.writeToFile(fs);
                 fs.Close();
                 MessageBox.Show("Game state saved successfully!\r\n" +
-                    "All game states are saved to the \".saved_games\" file. If you delete this file, this saved field will also be lost!", "Save",
+                    "All game states are saved to the \".saved_games\" file. If you delete this file, this saving will also be lost!", "Save",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

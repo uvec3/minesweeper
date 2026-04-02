@@ -47,7 +47,9 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.btRest = new System.Windows.Forms.Button();
             this.lbGameRes = new System.Windows.Forms.Label();
+            this.pbFlag = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFlag)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -109,7 +111,7 @@
             this.mShowProbability.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.mShowProbability.Size = new System.Drawing.Size(298, 22);
             this.mShowProbability.Text = "Calculate success probability";
-            this.mShowProbability.Click += new System.EventHandler(this.mShowProbablity_Click);
+            this.mShowProbability.Click += new System.EventHandler(this.mShowProbability_Click);
             // 
             // mShowPercentage
             // 
@@ -169,8 +171,9 @@
             // 
             this.lbTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbTime.AutoSize = true;
-            this.lbTime.Font = new System.Drawing.Font("Perpetua Titling MT", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTime.Location = new System.Drawing.Point(1566, 24);
+            this.lbTime.Font = new System.Drawing.Font("Consolas"
+                , 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTime.Location = new System.Drawing.Point(1560, 24);
             this.lbTime.Name = "lbTime";
             this.lbTime.Size = new System.Drawing.Size(45, 44);
             this.lbTime.TabIndex = 3;
@@ -181,14 +184,26 @@
             // 
             this.lbMines.AutoSize = true;
             this.lbMines.Font = new System.Drawing.Font("Perpetua Titling MT", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMines.Location = new System.Drawing.Point(12, 24);
+            this.lbMines.Location = new System.Drawing.Point(60, 24);
             this.lbMines.Name = "lbMines";
             this.lbMines.Size = new System.Drawing.Size(45, 44);
             this.lbMines.TabIndex = 4;
             this.lbMines.Text = "0";
-            // 
+            //
+            // pbFlag
+            //
+            this.pbFlag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.pbFlag.Image = global::Minesweeper.Properties.Resources.flag;
+            this.pbFlag.Location = new System.Drawing.Point(12, 30);
+            this.pbFlag.Name = "pbFlag";
+            this.pbFlag.Size = new System.Drawing.Size(36, 36);
+            this.pbFlag.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbFlag.TabIndex = 6;
+            this.pbFlag.TabStop = false;
+            this.pbFlag.Visible = true;
+
             // timer
-            // 
+            //
             this.timer.Interval = 10;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
@@ -222,6 +237,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1748, 882);
+            this.Controls.Add(this.pbFlag);
             this.Controls.Add(this.lbGameRes);
             this.Controls.Add(this.lbMines);
             this.Controls.Add(this.lbTime);
@@ -239,6 +255,7 @@
             this.SizeChanged += new System.EventHandler(this.Form_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFlag)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,6 +280,7 @@
         private System.Windows.Forms.Label lbMines;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label lbGameRes;
+        private System.Windows.Forms.PictureBox pbFlag; 
     }
 }
 
